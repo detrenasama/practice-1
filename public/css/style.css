@@ -1,0 +1,114 @@
+html {
+    font-size: 14px;
+    font-family: sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+}
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: #eee;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-center {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    box-shadow: 0 0 10px 3px #33333333;
+    background-color: #fff;
+}
+
+.card__item {
+    padding: 1em 2em;
+}
+.card__header {
+    background-color: #47c4ff;
+    color: #fff;
+}
+.card__footer {
+    background-color: #47c4ff;
+}
+
+
+.input-group input,
+.input-group textarea {
+    display: block;
+    width: 100%;
+    transition: border-color .3s ease;
+    border: 1px solid #ddd;
+}
+.input-group input.error,
+.input-group textarea.error {
+    display: block;
+    width: 100%;
+    border-color: #e05338;
+}
+
+.input-group input {
+    font-size: 1.2em;
+    padding: 0.5em 1em;
+}
+.input-group textarea {
+    resize: vertical;
+    font-size: 1.2em;
+    padding: 0.5em 1em;
+}
+.input-group label {
+    display: block;
+    font-size: 1em;
+    margin-bottom: 0.3em;
+}
+.input-error {
+    color: rgb(224, 83, 56);
+    font-size: 0.9em;
+    margin-top: 0.2em;
+}
+.button {
+    display: inline-block;
+    padding: 1em 2em;
+    background-color: rgb(46, 123, 168);
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: box-shadow .5s ease;
+}
+.button:hover {
+    box-shadow: 0 1px 3px #333333dd;
+}
+.button_big {
+    font-size: 1.3em;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.error-block {
+    background-color: rgb(224, 83, 56);
+    color: white;
+    padding: 1em 2em;
+}
+.error-block__item {
+    font-size: 1.1em;
+    margin-bottom: 1em;
+}
+.error-block__item:last-child {
+    margin-bottom: 0;
+}
