@@ -1,0 +1,12 @@
+{
+    "name": "detrena/practice-1",
+    "description": "Practice for my students",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Kropotov Bogdan",
+            "email": "kropotov@ctweb.ru"
+        }
+    ],
+    "require": {}
+}
