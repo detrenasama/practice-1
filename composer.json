@@ -8,7 +8,9 @@
             "email": "kropotov@ctweb.ru"
         }
     ],
-    "require": {},
+    "require": {
+        "zendframework/zend-servicemanager": "^3.4"
+    },
     "scripts": {
         "serve": "php -S 127.0.0.1:8080 -t ./public",
         "test": "phpunit tests"

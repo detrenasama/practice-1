@@ -14,5 +14,12 @@ return [
         'controller' => App\Controllers\SiteController::class,
         'action' => 'form',
         'name' => 'form'
+    ],
+    [
+        'path' => '/form/success',
+        'methods' => ['GET'],
+        'controller' => App\Controllers\SiteController::class,
+        'action' => 'formsuccess',
+        'name' => 'form.success'
     ]
 ];

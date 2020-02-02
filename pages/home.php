@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Практическое задание №1</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -19,11 +19,13 @@
                     </div>
                 </div>
 
-                <?php /* example of error block
-                <div class="error-block">
-                    <div class="error-block__item">Не заполнено поле: Имя</div>
-                    <div class="error-block__item">Не заполнено поле: E-mail</div>
-                </div> */ ?>
+                <?php if ($errors && !$errors->empty()): ?>
+                    <div class="error-block">
+                        <?php while (!$errors->empty()): ?>
+                            <div class="error-block__item"><?= $errors->pop() ?></div>
+                        <?php endwhile ?>
+                    </div>
+                <?php endif ?>
 
                 <div class="card__item input-group">
                     <label for="field-name">Как Вас зовут?</label>
