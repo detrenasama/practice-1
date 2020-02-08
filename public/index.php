@@ -6,6 +6,8 @@ chdir(dirname(__DIR__));
 
 require_once "vendor/autoload.php";
 
+session_start();
+
 $routes = include "config/routes.php";
 $serviceManager = new ServiceManager(include("config/config.php"));
 

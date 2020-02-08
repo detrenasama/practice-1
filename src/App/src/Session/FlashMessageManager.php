@@ -7,7 +7,6 @@ class FlashMessageManager {
 
     public function __construct()
     {
-        session_start();
         $this->containers = [];
         $initialData = isset($_SESSION[__CLASS__]) ? unserialize($_SESSION[__CLASS__]) : [];
         foreach ($initialData as $id => $container) {

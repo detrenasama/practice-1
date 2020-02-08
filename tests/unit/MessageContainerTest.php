@@ -3,13 +3,15 @@
 use App\Session\MessageContainer;
 use PHPUnit\Framework\TestCase;
 
-class FlashMessageContainerTest extends TestCase {
+class MessageContainerTest extends TestCase {
     /** @test */
     public function pushing_values_saved() {
         $c = new MessageContainer('test');
         $c->push('value');
 
         $this->assertEquals('value', $c->pop());
+
+        $this->assertTrue($c->empty());
     }
 
     /** @test */
@@ -20,5 +22,6 @@ class FlashMessageContainerTest extends TestCase {
 
         $this->assertEquals('value2', $c->pop());
         $this->assertEquals('value1', $c->pop());
+
     }
 }
