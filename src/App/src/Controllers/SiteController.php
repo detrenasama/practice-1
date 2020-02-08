@@ -19,24 +19,44 @@ class SiteController {
     public function actionIndex() {
 
         $errors = $this->flash->has('errors') ? $this->flash->get('errors') : null;
+        $inputs = $this->flash->has('inputs') ? $this->flash->get('inputs') : null;
+
+        $userInput = [];
+        if ($inputs) {
+            while (!$inputs->empty()) {
+                $arVal = $inputs->pop();
+                $userInput[$arVal[0]] = $arVal[1];
+            }
+        }
 
         include_once("pages/home.php");
     }
 
     public function actionForm() {
-        $name = trim($_POST['name']);
-        $email = trim($_POST['email']);
-        $message = trim($_POST['message']);
-
-        $obMess = new MailMessage();
-        $obMess->setBody(sprintf("Hi! New message from site!\n\nName: %s\nEmail: %s\nMessage:\n%s", 
-            $name,
-            $email,
-            $message
-        ));
-        $obMess->setSubject("Message from my site");
-
         try {
+            $name = trim($_POST['name']);
+            $email = trim($_POST['email']);
+            $message = trim($_POST['message']);
+
+            $inputs = $this->flash->get('inputs');
+            $inputs->push(['name', $name]);
+            $inputs->push(['email', $email]);
+            $inputs->push(['message', $message]);
+
+            if (!$email)
+                throw new \Exception("Заполните email!");
+
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+                throw new \Exception("Неверный email!");
+
+            $obMess = new MailMessage();
+            $obMess->setBody(sprintf("Hi! New message from site!\n\nName: %s\nEmail: %s\nMessage:\n%s", 
+                $name,
+                $email,
+                $message
+            ));
+            $obMess->setSubject("Message from my site");
+
             $this->mailer->send($obMess);
 
             header('Location: /form/success');

@@ -1,7 +1,5 @@
 <?php
 
-use App\Controllers\SiteController;
-use App\Controllers\SiteControllerFactory;
 use App\Interfaces\MailerInterface;
 use App\Mail\MailerFactory;
 use Zend\ServiceManager\AbstractFactory\ReflectionBasedAbstractFactory;
@@ -12,16 +10,17 @@ return [
     ],
     'factories' => [
         MailerInterface::class => MailerFactory::class,
-        // SiteController::class => SiteControllerFactory::class,
     ],
     
     'services' => [
         'mailer' => [
-            'from' => 'info@mysite.com',
-            'to' => [
-                'support@mysite.com'
+            'options' => [
+                'from' => 'info@mysite.com',
+                'to' => [
+                    'support@mysite.com'
+                ],
+                'mailbox_directory' => dirname(__DIR__) . '/var/mail/out',
             ],
-            'mailbox_directory' => dirname(__DIR__) . '/var/mail/out',
         ]
     ],
     

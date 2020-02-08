@@ -14,10 +14,11 @@ class DumpMailer implements MailerInterface {
 
     public function __construct($config = [])
     {
-        $this->from = $config['from'] ?: null;        
-        $this->to = $config['to'] ?: null;        
+        $options = $config['options'];
+        $this->from = $options['from'] ?: null;        
+        $this->to = $options['to'] ?: null;        
 
-        $this->dir = $config['mailbox_directory'] ?: 'var/mail/outbox';
+        $this->dir = $options['mailbox_directory'] ?: 'var/mail/outbox';
     }
 
     public function send(MailMessageInterface $message) {

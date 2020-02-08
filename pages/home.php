@@ -28,21 +28,21 @@
                 <?php endif ?>
 
                 <div class="card__item input-group">
-                    <label for="field-name">Как Вас зовут?</label>
-                    <input id="field-name" name="name" type="text" placeholder="Иван Иванов" value="<?= $_POST['name'] ?>">
+                    <label for="field-name">Как Вас зовут? *</label>
+                    <input id="field-name" name="name" type="text" placeholder="Иван Иванов" value="<?= htmlspecialchars($userInput['name']) ?: '' ?>">
                     <?php /* example of input error text
                     <div class="error">Error text</div>
                     */?>
                 </div>
 
                 <div class="card__item input-group">
-                    <label for="field-email">E-mail для связи</label>
-                    <input id="field-email" name="email" type="email" placeholder="example@domain.com" value="<?= $_POST['email'] ?>">
+                    <label for="field-email">E-mail для связи *</label>
+                    <input id="field-email" name="email" type="email" placeholder="example@domain.com" value="<?= htmlspecialchars($userInput['email']) ?: '' ?>">
                 </div>
 
                 <div class="card__item input-group">
                     <label for="field-message">Сообщение</label>
-                    <textarea id="field-message" name="message" cols="30" rows="10"><?= $_POST['message'] ?></textarea>
+                    <textarea id="field-message" name="message" cols="30" rows="10"><?= htmlspecialchars($userInput['message']) ?></textarea>
                 </div>
 
                 <div class="card__footer">
